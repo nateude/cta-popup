@@ -1,0 +1,52 @@
+@import "compass";
+
+	// ----------------------------------------------
+	// definitions for basic color palette
+
+		$primary:red;
+		$secondary:blue;
+
+		$black:#000;
+		$white:#fff;
+		.cta-popup{
+
+			.close{
+				cursor: pointer;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				color: $secondary;
+
+				&:hover{color: $primary;}
+			}
+
+		}
+
+	// ----------------------------------------------
+	// Overlay Styles
+		.cta-popup.overlay{
+
+			&::before{ }
+
+		}
+
+	// ----------------------------------------------
+	// Slider Styles
+		.cta-popup.slider{
+			@include single-transition(right, 1s, ease-in-out);
+			position: fixed;
+			width: 400px;
+			padding: 40px 20px;
+			text-align: center;
+			background: #ececec;
+			right: -440px;
+			bottom: 100px;
+			box-shadow: 0 0 5px rgba(#000,0.5);
+
+			&.active{
+				right:0;
+			}
+		}
