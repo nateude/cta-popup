@@ -8,7 +8,7 @@
 
 	Plugin Info
 	-----------------------------------------------------------
-		Version: 			2.2.2
+		Version: 			2.2.3
 		Plugin URI: 		https://github.com/nateude/cta-popup
 		Developer: 			Nate Ude
 		Devloper url: 		http://www.NateUde.com/
@@ -167,7 +167,7 @@
 		}
 
 		function setCookie(name,inter,value) {
-			if(debug == 1) {console.log(name+'debug' + "=" + value + ";  expires="+cookieDate(inter)); }
+			debuger(name+'debug' + "=" + value + ";  expires="+cookieDate(inter));
 			document.cookie = name + "=" + value + ";  expires="+cookieDate(inter);
 
 			debuger(false,'setCookie: true');
