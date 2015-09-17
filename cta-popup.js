@@ -8,7 +8,7 @@
 
 	Plugin Info
 	-----------------------------------------------------------
-		Version: 			2.1.4
+		Version: 			2.2.3
 		Plugin URI: 		https://github.com/nateude/cta-popup
 		Developer: 			Nate Ude
 		Devloper url: 		http://www.NateUde.com/
@@ -52,10 +52,10 @@
 
 	*/
 
-		var debug = 1;					// I/O debug features
 		var ctaTar = '.cta-popup';		// target element use definition (#,.)
 
 		var cVars = {
+			'debug':0,					// I/O debug features
 			'active':"active",			// active class to append
 			'cookieName':'abPopUp', 	// enter cookie name
 			'hover':1,					// enable/disable hover effect
@@ -72,7 +72,7 @@
 			'aGoal':false,				// ga label for test a
 			'bSel':'.testB',			// class selector for test b
 			'bLabel':'Test B',			// ga label for test b
-			'bGoal':'false',			// ga label for test b
+			'bGoal':false,				// ga label for test b
 		}
 
 		cVars = userVars(ctaTar,cVars); // merge with user values
@@ -110,7 +110,7 @@
 	========================================================
 */
 		function debuger(t,msg){
-			if(debug == 1 || t == true) { console.log(msg);}
+			if(cVars.debug == 1 || t == true) { console.log(msg);}
 		}
 
 		function gaEvent(category,action,label){
@@ -167,7 +167,7 @@
 		}
 
 		function setCookie(name,inter,value) {
-			if(debug == 1) {console.log(name+'debug' + "=" + value + ";  expires="+cookieDate(inter)); }
+			debuger(name+'debug' + "=" + value + ";  expires="+cookieDate(inter));
 			document.cookie = name + "=" + value + ";  expires="+cookieDate(inter);
 
 			debuger(false,'setCookie: true');
@@ -232,11 +232,16 @@
 		}
 
 		function sliderOut(inter,msg){
+			if(TimerTest != true) {
+				debuger(false,'sliderOut: false');
+				return false
+			}
+
 			if(inter === undefined) inter = nInter;
 			if(msg === undefined) msg = 'no interaction';
 			jQuery(ctaTar).removeClass('active');
 			setCookie(cVars.cookieName,inter, msg);
-			if(cVars.cookieOut > 0 && timeOut){clearTimeout(timeOut);}
+			if(cVars.cookieOut > 0){clearTimeout(timeOut);}
 			gaEvent(eClose[0],eClose[1],eClose[2]);
 
 			debuger(false,'sliderOut: true');
@@ -267,7 +272,7 @@
 		jQuery('.test').not(cVars[tSel]).remove();
 
 		timeIn = setTimeout(sliderIn, cVars.cookieIn);
-		if(cVars.cookieOut > 0 && TimerTest == true){timeOut = setTimeout(sliderOut, cVars.cookieOut);}
+		if(cVars.cookieOut > 0){timeOut = setTimeout(sliderOut, cVars.cookieOut);}
 
 		jQuery(ctaTar+' a').not('.wsp-close').click(function(){
 			gaEvent(eClick[0],eClick[1],eClick[2]);
