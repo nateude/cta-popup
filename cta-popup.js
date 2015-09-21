@@ -2,13 +2,10 @@
 
 	===========================================================
 
-		jQuery CTA Popup
+	jQuery CTA Popup
 
-	===========================================================
-
-	Plugin Info
 	-----------------------------------------------------------
-		Version: 			2.2.3
+		Version: 			2.2.6
 		Plugin URI: 		https://github.com/nateude/cta-popup
 		Developer: 			Nate Ude
 		Devloper url: 		http://www.NateUde.com/
@@ -16,11 +13,7 @@
 		License Agreement: 	Attribution-ShareAlike 4.0 International
 		License URL: 		http://creativecommons.org/licenses/by-sa/4.0/
 
-
-	Plugin Requirements
-	-----------------------------------------------------------
-
-		jQuery (Only Tested with 1.11.3)
+		Plugin Requirements: jQuery
 
 */
 	/*
@@ -52,12 +45,12 @@
 
 	*/
 
+		var debug = 0;					// I/O debug features
 		var ctaTar = '.cta-popup';		// target element use definition (#,.)
 
 		var cVars = {
-			'debug':0,					// I/O debug features
 			'active':"active",			// active class to append
-			'cookieName':'abPopUp', 	// enter cookie name
+			'cookieName':'abtest', 	// enter cookie name
 			'hover':1,					// enable/disable hover effect
 			'cookieIn':7000, 			// delay for popout in milliseconds
 			'cookieOut':21000, 			// hide if no interaction (0 to disable)
@@ -68,11 +61,11 @@
 
 			'abStatus':1,				//toogle ab test
 			'aSel':'.testA',			// class selector for test a
-			'aLabel':'Test A',			// ga label for test a
-			'aGoal':false,				// ga label for test a
+			'aLabel':'test a',			// ga label for test a
+			'aGoal':'/test-a',				// ga label for test a
 			'bSel':'.testB',			// class selector for test b
-			'bLabel':'Test B',			// ga label for test b
-			'bGoal':false,				// ga label for test b
+			'bLabel':'test b',			// ga label for test b
+			'bGoal':'/test-b',		// ga label for test b
 		}
 
 		cVars = userVars(ctaTar,cVars); // merge with user values
@@ -81,12 +74,12 @@
 
 		// GA Event Vars
 		// -------------------------------------------------------
-		var eOpen    = ['popup','singup','opened'] 	// Popup Open
-		var eClose   = ['popup','singup','closed'] 	// Manual Close
-		var eClick   = ['popup','singup','click'] 	// Click on link
-		var abView   = ['a/b testing','view'] 	    // AB test  (category,action)
-		var abAction = ['a/b testing','click'] 	    // AB test  (category,action)
-		var abGoal   = ['a/b testing','goal'] 	    // AB test  (category,action)
+		var eOpen    = ['popup','test','opened'] 	// Popup Open
+		var eClose   = ['popup','test','closed'] 	// Manual Close
+		var eClick   = ['popup','test','click'] 	// Click on link
+		var abView   = ['test a/b','view'] 	    	// AB test  (category,action)
+		var abAction = ['test a/b','click'] 	    // AB test  (category,action)
+		var abGoal   = ['test a/b','goal'] 	    	// AB test  (category,action)
 
 		// Cookie vars in hour intervals
 		// -------------------------------------------------------
@@ -95,7 +88,7 @@
 
 		// page array to hide popup
 		// -------------------------------------------------------
-		var pageException = ['/test1','/test'];
+		var pageException = ['/',aGoal,bGoal];
 
 		//empty defualt vars
 		// -------------------------------------------------------
@@ -110,7 +103,7 @@
 	========================================================
 */
 		function debuger(t,msg){
-			if(cVars.debug == 1 || t == true) { console.log(msg);}
+			if(debug == 1 || t == true) { console.log(msg);}
 		}
 
 		function gaEvent(category,action,label){
@@ -120,11 +113,11 @@
 		}
 
 		function abTest(){
-			var c = testCookie('abTester',true);
+			var c = testCookie(cVars.cookieName+'-test',true);
 			if(c != false){return c[1]}
 			var t = ['0','a','b'];
 			var n = Math.floor(Math.random() * 2) + 1;
-			setCookie('abTester','60',t[n]);
+			setCookie(cVars.cookieName+'-test','60',t[n]);
 			debuger(false,'abTest: '+t[n]);
 			return t[n];
 		}
@@ -143,31 +136,31 @@
 			return d.toUTCString();
 		}
 
-		function testWidth(){
+		function checkWidth(){
 			// check page width agains minWidth var
 			var w = jQuery(document).width();
 			if(w < cVars.minWidth){
-				debuger(false,'testWidth: false');
 				return false;
+				debuger(false,'checkWidth: false');
 			}
 
-			debuger(false,'testWidth: true');
+			debuger(false,'checkWidth: true');
 			return true;
 		}
 
-		function testURL(){
+		function urlException(){
 			var location = window.location.pathname;
 			if(pageException.indexOf(location) > 0){
-				debuger(false,'testURL: false');
+				debuger(false,'urlException: false');
 				return false;
 			}
 
-			debuger(false,'testURL: true');
+			debuger(false,'urlException: true');
 			return true;
 		}
 
 		function setCookie(name,inter,value) {
-			debuger(name+'debug' + "=" + value + ";  expires="+cookieDate(inter));
+			if(debug == 1) {console.log(name+'debug' + "=" + value + ";  expires="+cookieDate(inter)); }
 			document.cookie = name + "=" + value + ";  expires="+cookieDate(inter);
 
 			debuger(false,'setCookie: true');
@@ -211,8 +204,8 @@
 
 		function sliderIn(){
 			t = 0; //validation for cookie
-			if(testWidth() == false) {t=1;}
-			if(testURL() == false) {t=2;}
+			if(checkWidth() == false) {t=1;}
+			if(urlException() == false) {t=2;}
 			if(cVars.pageCount > 0 && testCounter()== false) {t=3;}
 			if(testCookie(cVars.cookieName,false) == true) {t=4;}
 
@@ -226,31 +219,26 @@
 				debuger(false,'sliderIn: true');
 				return true;
 			}else{
-				debuger(false,'sliderIn: false ('+t+')');
+				debuger(false,'sliderIn: false');
 				return false;
 			}
 		}
 
 		function sliderOut(inter,msg){
-			if(TimerTest != true) {
-				debuger(false,'sliderOut: false');
-				return false
-			}
-
 			if(inter === undefined) inter = nInter;
 			if(msg === undefined) msg = 'no interaction';
 			jQuery(ctaTar).removeClass('active');
 			setCookie(cVars.cookieName,inter, msg);
-			if(cVars.cookieOut > 0){clearTimeout(timeOut);}
+			if(cVars.cookieOut > 0 && timeOut){clearTimeout(timeOut);}
 			gaEvent(eClose[0],eClose[1],eClose[2]);
 
 			debuger(false,'sliderOut: true');
 			return true;
 		}
-
 		function goalComplete(){
 			var location = window.location.pathname;
-			var c = testCookie(cVars.cookieName,true)
+			var c = testCookie(cVars.cookieName,true);
+
 			if( c[1] != 'clicked'){
 				debuger(false,'goalComplete: false (cookie)');
 				return false;
@@ -260,7 +248,7 @@
 				debuger(false,'goalComplete: false (url)');
 				return false;
 			}
-			gaEvent(abGoal[0],abGoal[1],cVars[tLabel])
+			gaEvent(abGoal[0],abGoal[1],cVars[tLabel]);
 			debuger(false,'goalComplete: true');
 			return true;
 		}
@@ -272,15 +260,12 @@
 		jQuery('.test').not(cVars[tSel]).remove();
 
 		timeIn = setTimeout(sliderIn, cVars.cookieIn);
-		if(cVars.cookieOut > 0){timeOut = setTimeout(sliderOut, cVars.cookieOut);}
-
-		jQuery(ctaTar+' a').not('.wsp-close').click(function(){
-			gaEvent(eClick[0],eClick[1],eClick[2]);
-			setCookie(cVars.cookieName,yInter, 'clicked');
-		});
+		if(cVars.cookieOut > 0 && TimerTest == true){timeOut = setTimeout(sliderOut, cVars.cookieOut);}
 
 		jQuery(document).on('click', cVars[tSel]+' .abAction', function(event) {
 			gaEvent(abAction[0],abAction[1],cVars[tLabel]);
+			gaEvent(eClick[0],eClick[1],eClick[2]);
+			setCookie(cVars.cookieName,yInter, 'clicked');
 		});
 
 		jQuery(ctaTar).mouseenter(function(){if(cVars.hover == 1){clearTimeout(timeOut);}});
