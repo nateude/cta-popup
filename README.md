@@ -96,17 +96,17 @@ You can edit variables directly in the javascript files if you like I don't reco
 
 | Name 			| Description 																| Type 		| Default 	|
 |:--------------|:--------------------------------------------------------------------------|:----------|:----------|
-| debug 		| Toogles debug tools (writes data to console)								| string 	| 0			|
+| debug 		| Toogles debug tools (writes data to console)								| interger 	| 0			|
 | active 		| Class to append to div on active											| string 	| active	|
 | cookieName 	| Cookie & Test Name														| string 	| abtest	|
-| hover 		| Toogle pause on hover														| Interger 	| 1			|
-| cookieIn 		| Delay (after pageload) to show popout (millisecond) 						| Interger 	| 7000		|
-| cookieOut 	| Delay (after cookieIn) to hide popout (millisecond) 						| Interger 	| 21000		|
-| minWidth 		| Minmum page width for pop to show (hides when smaller)					| Interger 	| 1024		|
-| gaEnable 		| Toogle ga events 															| Interger 	| 2			|
-| pageCount 	| Number of Pages to visit before displaying								| Interger 	| 0			|
-| pageDelay 	| Cookie Timer for Pages (aka most visit 3 pages in x amount of time)		| Interger 	| 1			|
-| abStatus 		| Toogle A/B Test function 													| Interger 	| 1			|
+| hover 		| Toogle pause on hover														| interger 	| 1			|
+| cookieIn 		| Delay (after pageload) to show popout (millisecond) 						| interger 	| 7000		|
+| cookieOut 	| Delay (after cookieIn) to hide popout (millisecond) 						| interger 	| 21000		|
+| minWidth 		| Minmum page width for pop to show (hides when smaller)					| interger 	| 1024		|
+| gaEnable 		| Toogle ga events 															| interger 	| 2			|
+| pageCount 	| Number of Pages to visit before displaying								| interger 	| 0			|
+| pageDelay 	| Cookie Timer for Pages (aka most visit 3 pages in x amount of time)		| interger 	| 1			|
+| abStatus 		| Toogle A/B Test function 													| interger 	| 1			|
 | aSel 			| Class selector for Test A 												| string 	| .testa	|
 | aLabel 		| GA label for Test A 														| string 	| test A 	|
 | aGoal 		| GA label for Test A 														| string 	| /test-a	|
