@@ -74,25 +74,27 @@ to change the variable you can directly edit in the js file or use the element a
 ```
 ### With JavaScript
 
+You can edit variables directly in the javascript files if you like I don't recommend this.
+
 ### Attribute Defintions
 
-| Name 			| Description 							| type 		|
-|:--------------|:--------------------------------------|:----------|
-| active 		| active class to append 				| string 	|
-| cookieName 	| enter cookie name 					| string 	|
-| hover 		| enable/disable hover effect 			| Interger 	|
-| cookieIn 		| delay for popout in milliseconds 		| Interger 	|
-| cookieOut 	| hide if no interaction (0 to disable) | Interger 	|
-| minWidth 		| min page width for pop up 			| Interger 	|
-| gaEnable 		| enable/disable ga events define below | Interger 	|
-| pageCount 	| sets page number to display on 		| Interger 	|
-| pageDelay 	| sets time for page number cookie 		| Interger 	|
-| abStatus 		| toogle ab test 						| Interger 	|
-| aSel 			| class selector for test a 			| string 	|
-| aLabel 		| ga label for test a 					| string 	|
-| aGoal 		| ga label for test a 					| string 	|
-| bSel 			| class selector for test b 			| string 	|
-| bLabel 		| ga label for test b 					| string 	|
-| bGoal 		| ga label for test b 					| string 	|
+| Name 			| Description 																| type 		|
+|:--------------|:--------------------------------------------------------------------------|:----------|
+| active 		| Class to append to div on active											| string 	|
+| cookieName 	| Cookie & Test Name														| string 	|
+| hover 		| Toogle pause on hover														| Interger 	|
+| cookieIn 		| Delay (after pageload) to show popout (millisecond) 						| Interger 	|
+| cookieOut 	| Delay (after cookieIn) to hide popout (millisecond) 						| Interger 	|
+| minWidth 		| Minmum page width for pop to show (hides when smaller)					| Interger 	|
+| gaEnable 		| Toogle ga events 															| Interger 	|
+| pageCount 	| Number of Pages to visit before displaying								| Interger 	|
+| pageDelay 	| Cookie Timer for Pages (aka most visit 3 pages in x amount of time)		| Interger 	|
+| abStatus 		| Toogle A/B Test function 													| Interger 	|
+| aSel 			| Class selector for Test A 												| string 	|
+| aLabel 		| GA label for Test A 														| string 	|
+| aGoal 		| GA label for Test A 														| string 	|
+| bSel 			| Class selector for Test B													| string 	|
+| bLabel 		| GA label for Test B														| string 	|
+| bGoal 		| GA label for Test B														| string 	|
 
 ## Resources
