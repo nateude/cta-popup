@@ -26,9 +26,9 @@ jQuery *only tested with verison 1.11.3 +*
 
 ## User Variables
 
-to change the variable you can directly edit in the js file or use the element attrabutes to overwrite the script, this is the perfered method.
+to change the variable you can directly edit in the js file or use the element attrabutes to overwrite the script, this is the perfered method. Variables defined below.
 
-#### HTML Attritbutes Sample
+**HTML Attritbutes Sample**
 
 ```html
 		<div
@@ -72,9 +72,27 @@ to change the variable you can directly edit in the js file or use the element a
 		</div>
 	</div>
 ```
-
-### With Attributes
 ### With JavaScript
 
+### Attribute Defintions
+
+| Name 			| Description 							| type 		|
+|:--------------|:--------------------------------------|:----------|
+| active 		| active class to append 				| string 	|
+| cookieName 	| enter cookie name 					| string 	|
+| hover 		| enable/disable hover effect 			| Interger 	|
+| cookieIn 		| delay for popout in milliseconds 		| Interger 	|
+| cookieOut 	| hide if no interaction (0 to disable) | Interger 	|
+| minWidth 		| min page width for pop up 			| Interger 	|
+| gaEnable 		| enable/disable ga events define below | Interger 	|
+| pageCount 	| sets page number to display on 		| Interger 	|
+| pageDelay 	| sets time for page number cookie 		| Interger 	|
+| abStatus 		| toogle ab test 						| Interger 	|
+| aSel 			| class selector for test a 			| string 	|
+| aLabel 		| ga label for test a 					| string 	|
+| aGoal 		| ga label for test a 					| string 	|
+| bSel 			| class selector for test b 			| string 	|
+| bLabel 		| ga label for test b 					| string 	|
+| bGoal 		| ga label for test b 					| string 	|
 
 ## Resources
