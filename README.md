@@ -47,27 +47,26 @@ to change the variable you can directly edit in the js file or use the element a
 **HTML Attritbutes Sample**
 
 ```html
-		<div
-			class="cta-popup slider"
-			data-debug=0
-			data-active='active'
-			data-cookieName='tester_1013'
-			data-hover=1
-			data-cookieIn=1000
-			data-cookieOut=4000
-			data-minWidth=1024
-			data-gaEnable=0
-			data-pageCount=0
-			data-pageDelay=1
-			data-abStatus=1
-			data-aSel='.testA'
-			data-aLabel='Test A'
-			data-aGoal=false
-			data-bSel='.testB'
-			data-bLabel='Test B'
-			data-bGoal=false
-		>
-		<div class="overlay"></div>
+	<div class="cta-popup slider"
+		data-debug=0
+		data-active='active'
+		data-cookieName='test_001'
+		data-hover=1
+		data-cookieIn=1000
+		data-cookieOut=5000
+		data-minWidth=1024
+		data-gaEnable=0
+		data-pageCount=0
+		data-pageDelay=1
+		data-abStatus=1
+		data-aSel='.testA'
+		data-aLabel='Test A'
+		data-aGoal='false'
+		data-bSel='.testB'
+		data-bLabel='Test B'
+		data-bGoal='false'
+	>
+		<div class="overlay"></div> <!-- only needed for overlay -->
 		<div class="content">
 			<div class="close">x</div>
 			<div class="conwrap">
