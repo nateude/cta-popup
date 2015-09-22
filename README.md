@@ -3,33 +3,33 @@ an adjustable cta pop up for websites, with built in a/b testing functionality r
 
 ## Documentation
 
-	### Install
+### Install
 
-		to install cta-popup simply download the files and include them in your project folder.
+to install cta-popup simply download the files and include them in your project folder.
 
-		'''<script src="cta-popup.js"></script>'''
+'''<script src="cta-popup.js"></script>'''
 
-		Include the CSS file for basic styling
+Include the CSS file for basic styling
 
-		'''<link rel="stylesheet" href="cta-popup.css">'''
+'''<link rel="stylesheet" href="cta-popup.css">'''
 
-		+*cta-popup.htm* includes sample html code for the popup script. However you can add the script to any element by adding the class *.cta-popup* to the element and adjusting the variables using the attarabutes *see below for more info*.
-		+*cta-popup.css* includes basic css classes for a overlay or slider in popup
-		+*cta-popup.js* includes unminified javascript functions
-		+*cta-popup.min.js* includes minified javascript functions
++*cta-popup.htm* includes sample html code for the popup script. However you can add the script to any element by adding the class *.cta-popup* to the element and adjusting the variables using the attarabutes *see below for more info*.
++*cta-popup.css* includes basic css classes for a overlay or slider in popup
++*cta-popup.js* includes unminified javascript functions
++*cta-popup.min.js* includes minified javascript functions
 
-	### Requirments
+### Requirments
 
-		jQuery *only tested with verison 1.11.3 +*
+jQuery *only tested with verison 1.11.3 +*
 
-	### File Overview
+### File Overview
 
 
 
-	### User Variables
+### User Variables
 
-	#### With Attributes
-	#### With JavaScript
+#### With Attributes
+#### With JavaScript
 
 
 ## Resources
