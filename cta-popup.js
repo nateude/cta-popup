@@ -5,6 +5,7 @@
 	jQuery CTA Popup
 
 	-----------------------------------------------------------
+
 		Version: 			2.2.6
 		Plugin URI: 		https://github.com/nateude/cta-popup
 		Developer: 			Nate Ude
@@ -14,6 +15,9 @@
 		License URL: 		http://creativecommons.org/licenses/by-sa/4.0/
 
 		Plugin Requirements: jQuery
+
+	-----------------------------------------------------------
+	===========================================================
 
 */
 	/*
@@ -92,8 +96,8 @@
 
 		//empty defualt vars
 		// -------------------------------------------------------
-		var timeIn = "";
-		var timeOut = "";
+		var timeIn    = "";
+		var timeOut   = "";
 		var TimerTest = false;
 
 
