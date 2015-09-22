@@ -13,14 +13,14 @@ to install cta-popup simply download the files and include them in your project 
 
 Include the CSS file for basic styling
 
-```
+```html
 	<link rel="stylesheet" href="cta-popup.css">
 ```
 
-+*cta-popup.htm* includes sample html code for the popup script. However you can add the script to any element by adding the class *.cta-popup* to the element and adjusting the variables using the attarabutes *see below for more info*.
-+*cta-popup.css* includes basic css classes for a overlay or slider in popup
-+*cta-popup.js* includes unminified javascript functions
-+*cta-popup.min.js* includes minified javascript functions
+* **cta-popup.htm** includes sample html code for the popup script. However you can add the script to any element by adding the class **.cta-popup** to the element and adjusting the variables using the attarabutes *see below for more info*.
+* **cta-popup.css** includes basic css classes for a overlay or slider in popup
+* **cta-popup.js** includes unminified javascript functions
+* **cta-popup.min.js** includes minified javascript functions
 
 ### Requirments
 
