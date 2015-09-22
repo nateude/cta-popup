@@ -54,11 +54,11 @@
 
 		var cVars = {
 			'active':"active",			// active class to append
-			'cookieName':'abtest', 	// enter cookie name
+			'cookieName':'abtest', 		// enter cookie name
 			'hover':1,					// enable/disable hover effect
 			'cookieIn':7000, 			// delay for popout in milliseconds
 			'cookieOut':21000, 			// hide if no interaction (0 to disable)
-			'minWidth':1024,			// min page width for pop up
+			'minWidth':1024,			// min page width for pop upba
 			'gaEnable':2,				// enable/disable ga events define below
 			'pageCount':0,				// sets page number to display on
 			'pageDelay':1,				// sets time for page number cookie
@@ -69,7 +69,7 @@
 			'aGoal':'/test-a',				// ga label for test a
 			'bSel':'.testB',			// class selector for test b
 			'bLabel':'test b',			// ga label for test b
-			'bGoal':'/test-b',		// ga label for test b
+			'bGoal':'/test-b',			// ga label for test b
 		}
 
 		cVars = userVars(ctaTar,cVars); // merge with user values
@@ -92,7 +92,7 @@
 
 		// page array to hide popup
 		// -------------------------------------------------------
-		var pageException = ['/',aGoal,bGoal];
+		var pageException = ['/',cVars.aGoal,cVars.bGoal];
 
 		//empty defualt vars
 		// -------------------------------------------------------
@@ -228,12 +228,13 @@
 			}
 		}
 
-		function sliderOut(inter,msg){
+		function sliderOut(inter,msg,t){
+			if(cVars.cookieOut == 0 && t != 1){debuger(false,'sliderOut: false'); return false;}
 			if(inter === undefined) inter = nInter;
 			if(msg === undefined) msg = 'no interaction';
 			jQuery(ctaTar).removeClass('active');
 			setCookie(cVars.cookieName,inter, msg);
-			if(cVars.cookieOut > 0 && timeOut){clearTimeout(timeOut);}
+			if(timeOut){clearTimeout(timeOut);}
 			gaEvent(eClose[0],eClose[1],eClose[2]);
 
 			debuger(false,'sliderOut: true');
@@ -274,7 +275,7 @@
 
 		jQuery(ctaTar).mouseenter(function(){if(cVars.hover == 1){clearTimeout(timeOut);}});
 		jQuery(ctaTar).mouseleave(function(){if(cVars.hover == 1){var timeOut = setTimeout(sliderOut, cVars.cookieOut);}});
-		jQuery(ctaTar+' .close').click(function() { sliderOut(yInter,'closed'); cVars.hover = 0 });
+		jQuery(ctaTar+' .close').click(function() { sliderOut(yInter,'closed','1'); cVars.hover = 0 });
 
 		//check goals
 		goalComplete();

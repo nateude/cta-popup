@@ -8,6 +8,7 @@
 
 		$black:#000;
 		$white:#fff;
+
 		.cta-popup{
 
 			.close{
@@ -28,8 +29,40 @@
 	// ----------------------------------------------
 	// Overlay Styles
 		.cta-popup.overlay{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			opacity: 0;
 
-			&::before{ }
+			.overlay{
+				position: absolute;
+				background-color: rgba($black, 0.8);
+				width: 100%;
+				height: 100%;
+				z-index: 100;
+			}
+
+			.content{
+				@include box-shadow($black 2px 2px 10px);
+				@include transform(translate(-50%,-50%));
+				position: absolute;
+				z-index: 200;
+				width: 400px;
+				padding: 40px 20px;
+				text-align: center;
+				background: #fff;
+				top:50%;
+				left: 50%;
+			}
+
+			&.active{
+  				@include single-transition(opacity, 0.5s, ease-in-out);
+				z-index: 100000;
+				opacity: 1;
+			}
 
 		}
 
