@@ -6,7 +6,7 @@
 
 	-----------------------------------------------------------
 
-		Version: 			2.2.6
+		Version: 			2.3.1
 		Plugin URI: 		https://github.com/nateude/cta-popup
 		Developer: 			Nate Ude
 		Devloper url: 		http://www.NateUde.com/
