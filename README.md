@@ -94,21 +94,22 @@ You can edit variables directly in the javascript files if you like I don't reco
 
 ### Attribute Defintions
 
-| Name 			| Description 																| type 		|
-|:--------------|:--------------------------------------------------------------------------|:----------|
-| active 		| Class to append to div on active											| string 	|
-| cookieName 	| Cookie & Test Name														| string 	|
-| hover 		| Toogle pause on hover														| Interger 	|
-| cookieIn 		| Delay (after pageload) to show popout (millisecond) 						| Interger 	|
-| cookieOut 	| Delay (after cookieIn) to hide popout (millisecond) 						| Interger 	|
-| minWidth 		| Minmum page width for pop to show (hides when smaller)					| Interger 	|
-| gaEnable 		| Toogle ga events 															| Interger 	|
-| pageCount 	| Number of Pages to visit before displaying								| Interger 	|
-| pageDelay 	| Cookie Timer for Pages (aka most visit 3 pages in x amount of time)		| Interger 	|
-| abStatus 		| Toogle A/B Test function 													| Interger 	|
-| aSel 			| Class selector for Test A 												| string 	|
-| aLabel 		| GA label for Test A 														| string 	|
-| aGoal 		| GA label for Test A 														| string 	|
-| bSel 			| Class selector for Test B													| string 	|
-| bLabel 		| GA label for Test B														| string 	|
-| bGoal 		| GA label for Test B														| string 	|
+| Name 			| Description 																| Type 		| Default 	|
+|:--------------|:--------------------------------------------------------------------------|:----------|:----------|
+| debug 		| Toogles debug tools (writes data to console)								| string 	| 0			|
+| active 		| Class to append to div on active											| string 	| active	|
+| cookieName 	| Cookie & Test Name														| string 	| abtest	|
+| hover 		| Toogle pause on hover														| Interger 	| 1			|
+| cookieIn 		| Delay (after pageload) to show popout (millisecond) 						| Interger 	| 7000		|
+| cookieOut 	| Delay (after cookieIn) to hide popout (millisecond) 						| Interger 	| 21000		|
+| minWidth 		| Minmum page width for pop to show (hides when smaller)					| Interger 	| 1024		|
+| gaEnable 		| Toogle ga events 															| Interger 	| 2			|
+| pageCount 	| Number of Pages to visit before displaying								| Interger 	| 0			|
+| pageDelay 	| Cookie Timer for Pages (aka most visit 3 pages in x amount of time)		| Interger 	| 1			|
+| abStatus 		| Toogle A/B Test function 													| Interger 	| 1			|
+| aSel 			| Class selector for Test A 												| string 	| .testa	|
+| aLabel 		| GA label for Test A 														| string 	| test A 	|
+| aGoal 		| GA label for Test A 														| string 	| /test-a	|
+| bSel 			| Class selector for Test B													| string 	| .testb	|
+| bLabel 		| GA label for Test B														| string 	| test B	|
+| bGoal 		| GA label for Test B														| string 	| /test-b	|
