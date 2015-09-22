@@ -15,10 +15,26 @@ Include the CSS file for basic styling
 	<link rel="stylesheet" href="cta-popup.css">
 ```
 
-* **cta-popup.htm** includes sample html code for the popup script. However you can add the script to any element by adding the class **.cta-popup** to the element and adjusting the variables using the attarabutes *see below for more info*.
-* **cta-popup.css** includes basic css classes for a overlay or slider in popup
-* **cta-popup.js** includes unminified javascript functions
-* **cta-popup.min.js** includes minified javascript functions
+Add class selector to to element
+
+```html
+	<div class="cta-popup"></div>
+```
+
+Add use either *slider* or *overlay* to set popup type, or write your own css (replace cta-popup.css)
+
+```html
+	<div class="cta-popup slider"></div>
+```
+
+```html
+	<div class="cta-popup overlay"></div>
+```
+
+* **cta-popup.htm** includes sample html code for the popup script.
+* **cta-popup.css** includes basic css classes for a overlay or slider in popup.
+* **cta-popup.js** includes unminified javascript functions.
+* **cta-popup.min.js** includes minified javascript functions.
 
 ## Requirments
 
@@ -96,5 +112,3 @@ You can edit variables directly in the javascript files if you like I don't reco
 | bSel 			| Class selector for Test B													| string 	|
 | bLabel 		| GA label for Test B														| string 	|
 | bGoal 		| GA label for Test B														| string 	|
-
-## Resources
