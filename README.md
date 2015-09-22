@@ -1,9 +1,7 @@
 # A/B CTA Pop-Up
 an adjustable cta pop up for websites, with built in a/b testing functionality requires jQuery &amp; google analytics. Relies on cookies to track test values and paths.
 
-## Documentation
-
-### Install
+## Install
 
 to install cta-popup simply download the files and include them in your project folder.
 
@@ -22,18 +20,61 @@ Include the CSS file for basic styling
 * **cta-popup.js** includes unminified javascript functions
 * **cta-popup.min.js** includes minified javascript functions
 
-### Requirments
+## Requirments
 
 jQuery *only tested with verison 1.11.3 +*
 
-### File Overview
+## User Variables
 
+to change the variable you can directly edit in the js file or use the element attrabutes to overwrite the script, this is the perfered method.
 
+#### HTML Attritbutes Sample
 
-### User Variables
+```html
+		<div
+			class="cta-popup slider"
+			data-debug=0
+			data-active='active'
+			data-cookieName='tester_1013'
+			data-hover=1
+			data-cookieIn=1000
+			data-cookieOut=4000
+			data-minWidth=1024
+			data-gaEnable=0
+			data-pageCount=0
+			data-pageDelay=1
+			data-abStatus=1
+			data-aSel='.testA'
+			data-aLabel='Test A'
+			data-aGoal=false
+			data-bSel='.testB'
+			data-bLabel='Test B'
+			data-bGoal=false
+		>
+		<div class="overlay"></div>
+		<div class="content">
+			<div class="close">x</div>
+			<div class="conwrap">
+				<div class="test testA">
+					<h2>A Test Title</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<form method="post" name="form" action="#">
+						<input type="text" name="email" value="" placeholder="Enter Your Email">
+						<input type="submit" class="abAction" value="Submit" id="Submit" name="Submit">
+					</form>
+				</div>
+				<div class="test testB">
+					<h2>B Test Title</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<a href="testb.htm" class="button abAction"><span>Subscribe to Our Newsletter</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+```
 
-#### With Attributes
-#### With JavaScript
+### With Attributes
+### With JavaScript
 
 
 ## Resources
